@@ -34,6 +34,7 @@
 html {
   box-sizing: border-box;
   font-family: TT Lakes;
+  max-width: 1120px;
 }
 
 *,
@@ -55,6 +56,7 @@ li {
 .header {
   height: 88px;
   border-bottom: 1px solid #d9fff5;
+  /* background: #000; */
 }
 
 .header__container {
@@ -64,14 +66,59 @@ li {
 .header__inner,
 .header__left,
 .header__right,
-.header__link {
+.btn {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.header__link + .header__link {
+.btn {
+  background-color: #ff3e79;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.btn__inner {
+  width: 100%;
+  height: 100%;
+}
+
+.btn__burger {
+  background: url(../img/burger.svg) 50% 50% no-repeat;
+}
+
+.logo {
+  width: 96px;
+  height: 50px;
+  margin-left: 17px;
+  background: url(../img/logo.svg) 50% 50% no-repeat;
+}
+
+.btn__call {
+  background: url(../img/call.svg) 50% 50% no-repeat;
+}
+.btn__chat {
+  background: url(../img/chat.svg) 50% 50% no-repeat;
+}
+
+.btn__profile {
+  background: url(../img/profile.svg) 50% 50% no-repeat;
+}
+
+.btn__repair {
+  background: url(../img/repair.svg) 50% 50% no-repeat;
+}
+
+.btn__check {
+  background: url(../img/checkstatus.svg) 50% 50% no-repeat;
+}
+
+.btn + .btn {
   margin-left: 16px;
+}
+
+.header__divider + .btn {
+  margin-right: 0px;
 }
 
 .header__divider {
@@ -83,7 +130,7 @@ li {
 }
 
 .header__divider-logo,
-.header__after768 {
+.header__tablet {
   display: none;
 }
 
@@ -96,11 +143,17 @@ li {
   margin-bottom: 24px;
   min-width: 288px;
 }
+.head__title {
+  max-width: 650px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
 .head__h1 {
   font-weight: bold;
-  color: black;
+  flex: 0 0 650px;
   margin: 0;
-  margin-bottom: 24px;
   font-size: 28px;
   line-height: 40px;
   letter-spacing: -0.6px;
@@ -116,6 +169,23 @@ li {
   border-radius: 2px;
   position: absolute;
   background: #41f6d7;
+}
+
+.head__items-col {
+  display: flex;
+  align-items: center;
+}
+
+.head__items-col + .head__items-col {
+  margin-left: 32px;
+}
+
+.head__items-img {
+  margin-left: 8px;
+}
+.head__items {
+  display: flex;
+  font-weight: 500;
 }
 .menu {
   max-width: 100%;
@@ -167,50 +237,27 @@ li {
   letter-spacing: 0.2px;
   color: #1b1c21;
   margin-bottom: 16px;
-
   font-size: 14px;
   font-weight: 400;
 }
 .content__btn {
-  display: flex;
-  align-items: center;
-}
-.content__read-more {
-  height: 24px;
   font-size: 16px;
   line-height: 24px;
   letter-spacing: -0.2px;
   color: #1b1c21;
   font-weight: 500;
-  width: 100px;
+  white-space: nowrap;
+  width: 132px;
+  background: url(../img/expand.svg) 8px 50% no-repeat;
+  padding-left: 24px;
 }
+
 .content__col2 {
   margin-left: -16px;
 }
-.content__after768,
-.content__after1120 {
+.content__tablet,
+.content__desktop {
   display: none;
-}
-
-.head__after1120 {
-  display: none;
-  position: absolute;
-  top: 0;
-  right: 0;
-  font-weight: 500;
-}
-
-.head__after1120-col {
-  display: flex;
-  align-items: center;
-}
-
-.head__after1120-col + .head__after1120-col {
-  margin-left: 32px;
-}
-
-.head__after1120-img {
-  margin-left: 8px;
 }
 
 @media screen and (min-width: 767.98px) {
@@ -231,7 +278,7 @@ li {
   }
   .content__text {
     line-height: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 26px;
     max-height: 160px;
   }
   .content__descr {
@@ -239,19 +286,22 @@ li {
   }
   .header__divider-logo {
     display: inline-block;
-    margin-left: 4px;
   }
-  .header__after768 {
+  .logo {
+    margin-left: 0;
+  }
+  .header__tablet {
     display: flex;
   }
-  .header__divider-logo + .header__link {
+  .header__divider-logo + .btn {
     margin-left: 0;
   }
   .main {
     padding: 24px 24px;
   }
-  .content__after768 {
-    display: inline;
+  .content__tablet {
+    display: block;
+    margin-bottom: 10px;
   }
 }
 @media screen and (min-width: 1119.98px) {
@@ -267,7 +317,10 @@ li {
 
   .head {
     margin-bottom: 16px;
-    position: relative;
+  }
+
+  .head__title {
+    max-width: 1063px;
   }
   .menu__list {
     max-width: 1060px;
@@ -284,16 +337,12 @@ li {
     width: 531px;
   }
   .head__h1::before {
-    left: -32px;
-    top: 0;
+    left: 0px;
+    top: 42px;
     width: 3px;
   }
 
-  .content__after1120 {
+  .content__desktop {
     display: inline;
-  }
-
-  .head__after1120 {
-    display: flex;
   }
 }
