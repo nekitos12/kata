@@ -5,7 +5,7 @@ function mobileSlider() {
 
   myswip = new Swiper(slider, {
     loop:true,
-      
+    slideToClickedSlide: false,  
     slidesPerView: 'auto',
     spaceBetween:16,
     slideClass: 'service-logo__slide',
@@ -62,6 +62,7 @@ function showMore() {
   service.classList.toggle ('service-click');
   serviceLogoWrapper.classList.toggle ('service-logo__wrapper-click');
   serviceLogo.classList.toggle ('service-logo-click');
+  serviceShowMore.classList.toggle ('show-more-click');
 
   if (service.classList.contains('service-click')){
     serviceShowMore.textContent = 'Скрыть'
